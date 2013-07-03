@@ -1,0 +1,173 @@
+options{
+    IGNORE_CASE=true ;
+    STATIC=false;
+    //DEBUG_LOOKAHEAD= true ;
+    //DEBUG_TOKEN_MANAGER=true;
+}
+
+PARSER_BEGIN(TestCC)
+
+package deltree.cc.gen;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.io.StringReader;
+import java.util.concurrent.atomic.AtomicInteger;
+
+/**
+ * JavaCC-generated parser. Do not edit.
+ */
+public class TestCC {
+
+	private AtomicInteger constraintGroupIdGenerator = new AtomicInteger();
+
+    public TestCC(String in) {
+        this(new StringReader(in));
+    }
+
+}
+
+
+PARSER_END(TestCC)
+
+
+SKIP:
+{
+    " "
+|   "\t"
+|   "\r"
+|   "\n"
+}
+
+TOKEN: /* mql sql */
+{
+<HOOK_LEFT:"[">
+|  <HOOK_RIGHT:"]">
+}
+
+TOKEN: /* keywords */
+{
+<SELECT:"SELECT">
+|   <FROM:"FROM">
+|	<WHERE:"WHERE">
+| 	<AND:"AND">
+| 	<OR:"OR">
+|   <IN:"IN">
+|   <IS:"IS">
+|   <NOT:"NOT">
+|   <NULL:"NULL">
+|   <BETWEEN:"BETWEEN">
+|   <ORDER:"ORDER">
+|   <BY:"BY">
+|   <ASC:"ASC">
+|   <DESC:"DESC">
+| 	<LIKE: "LIKE" >
+| 	<ILIKE: "ILIKE" >
+|   <LPAREN: "(">
+|   <RPAREN: ")">
+|   <DISTINCT:"DISTINCT">
+|   <LIMIT:"LIMIT">
+|   <ALL:"ALL">
+}
+TOKEN: /* ensemblist operators */
+{
+<ENSEMBLIST_OPERATORS:<UNION>|<EXCEPT>|<INTERSECT>|<UNION_ALL>>
+|   < #UNION:"UNION">
+|   < #EXCEPT:"EXCEPT">
+|	< #INTERSECT:"INTERSECT">
+|	< #UNION_ALL:<UNION>(" "|"\t"|"\r"|"\n")+<ALL>>
+}
+
+TOKEN: /* function names */
+{
+  	< FUNCTION_NAME : "mql_" < IDENTIFIER >>
+}
+
+TOKEN: /* identifiers */
+{
+	< IDENTIFIER: ( <LETTER> )+ ( <DIGIT> | <LETTER> )* >
+|   < IDENTIFIER_MQL_SQL: < HOOK_LEFT >  (~["[", "]"])+ < HOOK_RIGHT > >
+|   < #DIGIT: ["0" - "9"] >
+| 	< #LETTER: ["a"-"z", "A"-"Z", "_"] >
+|   < CHAR_LITERAL: "'" (~["'"])* "'">
+|   < BIND_VARIABLE: ((":"<IDENTIFIER>) | "?" )>
+}
+
+TOKEN : /* numeric */
+{
+	< DOUBLE: ((<INTEGER>)? "." <INTEGER> ( ["e","E"] ([ "-","+"])? <INTEGER> )? 
+				|
+				(<INTEGER>)+ (".")? ["e","E"] ([ "-","+"])? (<INTEGER>)+
+				)>
+| 	< INTEGER: ( <PMSIPILOT_DIGIT> )+ >
+|   < NEGATIVE_INTEGER: "-"<INTEGER> > 
+| 	< #PMSIPILOT_DIGIT: ["0" - "9"] >
+}
+
+TOKEN: /* comparison operators */
+{
+  	<OPERATOR_TYPE: <EQ> | <NEQ> | <GT> | <GTE> | <LT> | <LTE> >
+|   < #EQ: "=" >
+|   < #NEQ: "<>" >
+|   < #GT: ">" >
+|   < #GTE: ">=" >
+|   < #LT: "<" >
+|   < #LTE: "<=" >
+}
+
+TOKEN: /*Arithmetic operators */
+{
+<OPERATOR_ARITHMETIC:<PLUS>|<MOINS>|<DIVISION>|<MULTIPLICATION>|<MODULO>>
+| <PLUS:"+">
+| <MOINS:"-">
+| <DIVISION:"/">
+| <MULTIPLICATION:"*">
+| <MODULO:"%">
+| <PUISS:"^">
+}
+
+
+// | "=" | "<>" | ">" | ">=" | "<" | "<="
+
+double Sum() :
+{}{  (    Mul()  OpSum()
+  )  {	return 0;
+  } 
+}
+
+double OpSum() :
+{}
+{
+  	(
+  	  [(<PLUS>|<MOINS>)Sum()]  	)
+  	{
+     return 0;
+  	}}
+double Mul() :
+{
+}
+{
+  (
+    Val()  OpMul()
+  )
+  {
+	return 0;
+  } 
+
+}
+
+double OpMul() :
+{
+}
+{
+  	(
+  	  [(<DIVISION>|<MULTIPLICATION>)Mul()]
+  	)
+  	{
+     return 0;
+  	}
+}
+double Val() :
+{}{  <IDENTIFIER> | <DOUBLE>
+  {     return 0;
+  }}double Puiss() :{ }{   (    Val() OpPuiss()  )  {	return 0;  }}double OpPuiss(){}{  [<PUISS>Val()]}////double Val() ://{//}//{//  <IDENTIFIER> | <DOUBLE>//}
