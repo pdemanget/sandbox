@@ -1,0 +1,107 @@
+<html><head></head><title>New Css3 attributes in action</title><body>
+<style>
+	@keyframes anim{
+		0%   { left:90%; }
+		100% { left:10%; }
+	}
+	.divanim{
+		animation:anim 2s infinite alternate;
+	}
+
+.SCENE {
+	-moz-perspective: 200px;
+	/*perspective: 1000px;*/
+	width: 600px;
+	height: 340px;
+}
+.OBJECT {
+	-moz-transform-style: preserve-3d;
+	/*transform-style: preserve-3d;*/
+	-moz-transform: rotateX(15deg) rotateY(0deg) rotateZ(0deg);
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+.FACE {
+	position: absolute;
+	left: 165px;
+	top: 15px;
+	border: 1px solid red;
+}
+.FACE.im1 { -moz-transform: translateZ(150px); }
+.FACE.im2 { -moz-transform: translateZ(-150px); }
+.FACE.im3 { -moz-transform:  translateX(150px) rotateY(45deg);}
+
+   .container {
+      width: 200px;
+      height: 200px;
+      border: 1px solid #CCC;
+      margin: 0 auto 40px;
+    }
+
+    .box {
+      width: 100%;
+      height: 100%;
+    }
+
+    #red .box {
+      background-color: red;
+      -webkit-transform: perspective( 600px ) rotateY( 45deg );
+         -moz-transform: perspective( 600px ) rotateY( 45deg );
+           -o-transform: perspective( 600px ) rotateY( 45deg );
+              transform: perspective( 600px ) rotateY( 45deg );
+    }
+
+    #madiv .box {
+      /*background-color: red;*/
+      -webkit-transform: perspective( 600px ) rotateY( 45deg );
+         -moz-transform: perspective( 600px ) rotateY( 45deg );
+           -o-transform: perspective( 600px ) rotateY( 45deg );
+              transform: perspective( 600px ) rotateY( 45deg );
+    }
+
+
+/*see http://animateyourhtml5.appspot.com/pres/#16 */
+</style>
+<!-- 
+
+http://desandro.github.io/3dtransforms/examples/perspective-01.html
+-->
+<div class="divanim">point 1. animation </div>
+		<div class="FACE"> point  2. transfo 3D </div>
+
+<div class="SCENE">
+	<div class="OBJECT">
+		<div class="FACE im1">
+                   point  2. transfo 3D 
+ 		   <br />
+		   .............................................................
+                </div>
+		<div class="FACE im2">
+                   point  2. transfo 3D 
+ 		   <br />
+		   .............................................................
+                </div>
+
+		<div class="FACE im3">
+                   point  2. transfo 3D 
+ 		   <br />
+		   .............................................................
+                </div>
+	</div>
+</div>
+
+
+  <section id="madiv" class="container">
+		<div class="box">
+                   point  2. transfo 3D 
+ 		   <br />
+		   .............................................................
+                </div>
+  </section>
+
+  <section id="red" class="container">
+    <div class="box red"></div>
+  </section>
+</body></html>
+
