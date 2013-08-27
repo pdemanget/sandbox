@@ -2,7 +2,7 @@
 <html>
 <head>
 <style> 
-div
+div.kb
 {
 width:100px;
 height:100px;
@@ -14,11 +14,14 @@ animation:mymove 5s infinite;
 
 @keyframes mymove
 {
-from {top:0px;}
-to {top:200px;}
+from {top:0px; left:0px;}
+50% {top:200px; left:400px;}
+to {top:0px; left:0px;}
+
 }
 
-@-webkit-keyframes mymove /* Safari and Chrome */
+/* Safari and Chrome */
+@-webkit-keyframes mymove 
 {
 from {top:0px;}
 to {top:200px;}
@@ -29,7 +32,7 @@ to {top:200px;}
 
 <p><strong>Note:</strong> The @keyframes rule is not supported in Internet Explorer 9 and earlier versions.</p>
 
-<div></div>
+<div class="kb"></div>
 
 </body>
 </html>

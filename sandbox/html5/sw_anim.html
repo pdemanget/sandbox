@@ -1,0 +1,193 @@
+<html><head><title>Starwars intro</title>
+
+<style> 
+
+
+div.kb
+{
+width:100px;
+height:100px;
+background:red;
+position:absolute;
+animation:mymove 5s infinite;
+-webkit-animation:mymove 5s infinite; /* Safari and Chrome */
+}
+
+@keyframes mymove
+{
+from {top:0px; left:0px;}
+50% {top:200px; left:400px;}
+to {top:0px; left:0px;}
+
+}
+	html{
+		background:black;
+		overflow: hidden;
+	}
+   .container {
+      width: 100%;
+      height: 100%;
+      margin: 0 auto 0px;
+	  /*background: #000000 url('ciel.jpg') no-repeat fixed center; */
+	  background: #000000 url('ciel.jpg'); 
+    }
+
+    .box {
+      width: 100%;
+      height: 2700px;
+	  overflow-y: scroll;
+	  line-height:90%;
+	  
+	  font-family: sans-serif;
+	  font-size:78px;
+	  text-align:justify;
+	  color:rgb(244,225, 0);
+    }
+	.box p{
+		margin: 100px;
+	}
+
+    #red .box {
+		background-color: transparent;
+      -webkit-transform: perspective( 400px ) rotateX( 90deg )  translateX(00px) translateY(-2500px) translateZ(-500px);
+         -moz-transform: perspective( 600px ) rotateX( 45deg );
+           -o-transform: perspective( 600px ) rotateX( 45deg );
+              transform: perspective( 400px ) rotateX( 90deg ) translateX(00px) translateY(-2500px) translateZ(-500px);
+			  
+			transform-origin:center 0px;
+			
+    }
+	.fade{
+		position:absolute;
+		/*top:0px;
+		left:0px;*/
+		width:100%;
+		height:400px;
+		z-index:1000;
+	/*	border: 1px solid #CCC; */
+	/*  mozilla example - FF3.6+ */
+		background-image: -moz-linear-gradient(
+		rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 95%
+);
+
+
+</style>
+
+</head><body>
+<style>
+
+
+
+
+</style>
+<!--
+Il y a longtemps, dans
+une galaxie lointaine, très
+lointaine...
+89,153, 188
+  LA GUERRE
+DES ETOILES
+170,146,27
+
+C'est une période de guerre
+civile. A bord de vaisseaux
+spaciaux opérant à partir
+d'une base inconnue, les
+Rebelles ont remporté leur
+première victoire sur
+l'abominable Empire
+Galactique.
+
+Au cours de la bataille, les
+Rebelles ont réussi à
+dérober les plans secrets
+de l'arme absolue de
+l'Empire: l'ETOILE
+NOIRE, une station 
+spatiale dotée d'un 
+armement assez puissant
+pour annihiler une planète
+tout entière.
+
+Poursuivie par les sbires
+sinistres de l'Empire, la
+Princesse Leia regagne sa
+base dans son vaisseau 
+cosmique, porteuse des
+plans volés à l'ennemi qui
+pourrant sauver son
+peuple et restaurer la
+liberté dans la galaxie...
+244,177, 94
+
+It is a period of civil war.
+Rebel spaceships, striking 
+from a hidden base, have won 
+their first victory against 
+the evil Galactic Empire. 
+
+During the battle, Rebel 
+spies managed to steal secret 
+plans to the Empire's 
+ultimate weapon, the DEATH 
+STAR, an armored space 
+station with enough power to 
+destroy an entire planet. 
+
+Pursued by the Empire's 
+sinister agents, Princess 
+Leia races home aboard her 
+starship, custodian of the 
+stolen plans that can save 
+her people and restore 
+freedom to the galaxy...
+-->
+  <div class="kb"></div>
+  <section id="red" class="container">
+	<div class="fade"></div>
+    <div class="box red">
+	<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+	<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+	<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+	<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
+	<p>
+	C'est une période de guerre
+civile. A bord de vaisseaux
+spaciaux opérant à partir
+d'une base inconnue, les
+Rebelles ont remporté leur
+première victoire sur
+l'abominable Empire
+Galactique.
+	</p><p>
+Au cours de la bataille, les
+Rebelles ont réussi à
+dérober les plans secrets
+de l'arme absolue de
+l'Empire: l'ETOILE
+NOIRE, une station 
+spatiale dotée d'un 
+armement assez puissant
+pour annihiler une planète
+tout entière.
+	</p><p>
+Poursuivie par les sbires
+sinistres de l'Empire, la
+Princesse Leia regagne sa
+base dans son vaisseau 
+cosmique, porteuse des
+plans volés à l'ennemi qui
+pourrant sauver son
+peuple et restaurer la
+liberté dans la galaxie...
+	</p>
+	
+	<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+	<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+	<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+	<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+	</div>
+  </section>
+</body></html>
+

@@ -1,0 +1,33 @@
+<html><head><title>video</title>
+<!--
+http://parlede.com/developpement/html5-video-players-723/
+-->
+<link href="http://vjs.zencdn.net/4.1/video-js.css" rel="stylesheet">
+<script src="http://vjs.zencdn.net/4.1/video.js"></script>
+</head><body>
+<style>
+	html{
+		background:grey;
+		overflow: hidden;
+	}
+
+</style>
+
+<video >
+<!-- mp3 in crome -->
+  <source src="zeppelin.mp3" />
+  <!-- add ogg soure for other breowsers-->
+</video>
+<video id="example_video_1" class="video-js vjs-default-skin"
+  controls preload="auto" width="640" height="264"
+  poster="http://video-js.zencoder.com/oceans-clip.png"
+  data-setup='{"example_option":true}'>
+    <source src="zeppelin.mp3" type='audio/mp3'  />
+	<!--
+ <source src="http://video-js.zencoder.com/oceans-clip.mp4" type='video/mp4' />
+ <source src="http://video-js.zencoder.com/oceans-clip.webm" type='video/webm' />
+ <source src="http://video-js.zencoder.com/oceans-clip.ogv" type='video/ogg' />
+ -->
+</video>
+</body></html>
+
