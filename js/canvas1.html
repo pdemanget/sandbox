@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>Custom Plunker</title>  
+
+        </script>
+
+
+    </head>
+    <body >
+        <canvas id="ex1" style="border: 1px solid #cccccc;" height="170" width="500">
+
+
+        HTML5 Canvas not supported
+
+        </canvas>
+
+        <script type="text/javascript">
+            function my1stCanvas(){
+                var canvas  = document.getElementById("ex1");
+                var context = canvas.getContext("2d");
+
+                var width  = 100;
+                var height = 100;
+                var imageData = context.createImageData(width, height);
+                //putpixel example
+                var pixelIndex = 0;
+                imageData.data[pixelIndex    ] = 255;  // red   color
+                imageData.data[pixelIndex + 1] =   0;  // green color
+                imageData.data[pixelIndex + 2] =   0;  // blue  color
+                imageData.data[pixelIndex + 3] = 255;
+                //pixel index
+                //var index = 4 * (x + y * width);
+
+                var canvasX = 25;
+                var canvasY = 25;
+
+                context.putImageData(imageData, canvasX, canvasY);
+                console.log("done");
+            }
+
+            function putPixel(imageData,width, x,y,r,g,b,a){
+                //putpixel example
+                var index = 4 * (x + y * width);
+                imageData.data[index    ] = r;  // red   color
+                imageData.data[index + 1] = g;  // green color
+                imageData.data[index + 2] = b;  // blue  color
+                imageData.data[index + 3] = a;
+
+
+            }
+            function my2ndCanvas(){
+                var canvas  = document.getElementById("ex1");
+                var context = canvas.getContext("2d");
+
+                var width  = 100;
+                var height = 100;
+                var imageData = context.createImageData(width, height);
+                for(var x=0;x<100;x++)
+                    putPixel(imageData, width,x,x,255,0,0,255);
+
+                var canvasX = 25;
+                var canvasY = 25;
+
+                context.putImageData(imageData, canvasX, canvasY);
+                console.log("done");
+            }
+            my2ndCanvas();
+
+            /* note pour plus tard:
+            pour utiliser le canvas on a :
+            . image bitmap associée au canvas => convas.getContext("2d").createImage
+            . fonctions du context:  => canvs.getContext("2d").clearRect ...
+            -tuto http://tutorials.jenkov.com/html5-canvas/animation.html
+            */
+        </script>
+    </body>
+</html>
