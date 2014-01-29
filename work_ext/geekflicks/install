@@ -1,0 +1,7 @@
+#install
+#cd ..
+#wget http://cdn.sencha.com/ext/gpl/ext-4.2.1-gpl.zip
+#gunzip ext-4.2.1-gpl.zip
+#mv ext-4.2.1 ext
+#cd geekflicks
+ln -s ../ext public/extjs
