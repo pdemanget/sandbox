@@ -66,7 +66,95 @@
                 context.putImageData(imageData, canvasX, canvasY);
                 console.log("done");
             }
-            my2ndCanvas();
+
+            function my3rdCanvas(){
+
+
+                function Graphics(id, width,height){
+                    this.canvas  = document.getElementById(id);
+                    this.context = this.canvas.getContext("2d");
+                    this.width  = width;
+                    this.height = height;
+                    this.imageData = this.context.createImageData(width, height);
+                    for(var i=0;i<width*height;i++){
+                        this.imageData.data[i]=128;
+                    }
+                    this.setPixel=function(x,y,r,g,b){
+                        var index = 4 * (x + y * width);
+                        console.log(""+x+","+y+","+r+","+g+","+b);
+                        console.log(""+this.imageData.data[index + 0]
+                            +","+this.imageData.data[index + 1]
+                            +","+this.imageData.data[index + 2]);
+
+                        this.imageData.data[index    ] ^= 256;  // red   color
+                        this.imageData.data[index + 1] ^= 256;  // green color
+                        this.imageData.data[index + 2] ^= 256;  // blue  color
+                        
+                        
+                        this.imageData.data[index    ] ^= r;  // red   color
+                        this.imageData.data[index + 1] ^= g;  // green color
+                        this.imageData.data[index + 2] ^= b;  // blue  color
+                        this.imageData.data[index + 3] = 255;
+
+                        this.imageData.data[index    ] ^= 256;  // red   color
+                        this.imageData.data[index + 1] ^= 256;  // green color
+                        this.imageData.data[index + 2] ^= 256;  // blue  color
+                        
+                        
+                        console.log(""+this.imageData.data[index + 0]
+                            +","+this.imageData.data[index + 1]
+                            +","+this.imageData.data[index + 2]);
+                    }
+
+                    this.drawLine=function(x0, y0, x1, y1, r ,g ,b){
+                       var dx = Math.abs(x1-x0);
+                       var dy = Math.abs(y1-y0);
+                       var sx=(x0 < x1)?1:-1;
+                       var sy=(y0 < y1)?1:-1;
+                       err = dx-dy;
+
+                       for(;;){
+                         this.setPixel(x0,y0,r,g,b);
+                         if (x0 == x1 && y0 == y1) return;
+                         e2 = 2*err
+                         if (e2 > -dy) {
+                           err = err - dy;
+                           x0 = x0 + sx;
+                         }
+                         if (e2 <  dx) { 
+                           err = err + dx;
+                           y0 = y0 + sy;
+                         }
+                       }
+                    }
+                    this.render=function(){
+                        this.context.putImageData(this.imageData, 0,0);
+                        console.log("done");
+                    }
+
+                }
+
+
+                var g = new Graphics("ex1",100,100);
+                g.drawLine(0,0,10,10,255,255,255);
+                g.drawLine(0,10,10,0,0,0,0);
+                for (var i=0;i<10;i+=3){
+                    g.drawLine(i,0,i,10,255,255,255);
+                }
+
+                // for (var i=0;i<100;i+=5){
+                //     g.drawLine(i,0,0,100-i,127,127,127);
+                //     //g.drawLine(0,i,100-i,0,0,0,0);
+                // }
+                g.render();
+                var t=0;
+                t^=255;
+                // alert("0^255 "+t);
+                t^=255;
+                // alert("255^255 "+(255^255));
+            }
+
+            my3rdCanvas();
 
             /* note pour plus tard:
             pour utiliser le canvas on a :
