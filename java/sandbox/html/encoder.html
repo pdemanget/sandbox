@@ -1,0 +1,37 @@
+<script>
+    function urlencode(){
+        decodeURIComponent(url);
+    }
+</script>
+<style>
+    textarea{
+        width: 800px;
+        height: 100px;
+        resize: both;
+    }
+</style>
+
+<form name="encoder">
+    <label>encode/decode URL</label>
+    <br/>
+    <textarea name="urlfrom"> </textarea>
+    <br/>
+    <input type="button" value=">>" onclick="this.parentElement.urlto.value=encodeURIComponent(this.parentElement.urlfrom.value)"/>
+    <input type="button" value="<<" onclick="this.parentElement.urlfrom.value=decodeURIComponent(this.parentElement.urlto.value)"/>
+    <br/>
+    <textarea name="urlto"> </textarea>
+</form>
+
+<form name="base64">
+    <label>encode/decode base64</label>
+    <br/>
+    <textarea name="from"></textarea>
+    <br/>
+    <input type="button" value=">>" onclick="this.parentElement.to.value=btoa(this.parentElement.from.value)"/>
+    <input type="button" value="<<" onclick="this.parentElement.from.value=atob(this.parentElement.to.value)"/>
+    <br/>
+    <textarea name="to"></textarea>
+</form>
+
+
+Unicode entities:   &#65;  &#x41;

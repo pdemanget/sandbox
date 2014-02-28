@@ -1,0 +1,8 @@
+#!/bin/bash
+#source ~/workspace/pdemanget/sandbox/sh/doc/.batshrc
+
+#export PATH=~/bin:/opt/bin:/home/opt/bin:~/workspace/pdemanget/sandbox/sh/bin:~/bin/Sencha/Cmd/3.1.2.342:$PATH
+
+#DOS aliases
+alias dir='ls -lsa'
+alias copy='cp '

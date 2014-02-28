@@ -1,8 +1,0 @@
-README
-Tutorial made by Sencha.
-Updated by P.Demanget for an easy installation
-
-Update made to this tutorial:
-added npm package.json file for installation
-modified app.js fore deprecated express method.
-

@@ -1,0 +1,88 @@
+<html><head><title>animation</title>
+
+<style>
+/**
+ * animation-transition-keyframes
+
+1. animation: ;
+1.1 définir le keyframe (nommé spin) "@keyframes spin"
+2.2 appliquer l'animation "animation:spin"
+
+ */
+@-moz-keyframes spin {
+    from { -moz-transform: rotate(0deg); }
+    to { -moz-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+}
+
+/*
+@-moz-keyframes z_spin {
+    from { 
+         -moz-transform: perspective( 600px ) rotateY( 0deg );}
+    to { -moz-transform: perspective( 600px ) rotateY( 360deg );}
+}
+*/
+@-webkit-keyframes z_spin {
+    from { -webkit-transform: perspective( 600px ) rotateY( 0deg ); }
+    to { -webkit-transform: perspective( 600px )  rotateY(360deg); }
+}
+@keyframes z_spin {
+    from {transform:  perspective( 600px ) rotateY(0deg);}
+    to {transform: perspective( 600px )  rotateY(360deg);}
+}
+
+
+
+
+/*machine à laver */
+.mal{
+    margin: 20px;
+    width: 100px; 
+    height: 100px;    
+    background: #f00;
+
+    -moz-animation: spin 2s infinite linear;
+    -o-animation: spin 2s infinite linear;
+    -webkit-animation: spin 2s infinite linear;
+    animation: spin 2s infinite linear;
+}
+
+
+/*machine à laver 2 */
+.zmal{
+    margin: 20px;
+    width: 100px; 
+    height: 100px;    
+    background: #f00;
+
+    -moz-animation: z_spin 2s infinite linear;
+    -o-animation: z_spin 2s infinite linear;
+    -webkit-animation: z_spin 2s infinite linear;
+    animation: z_spin 2s infinite linear;
+}
+/**/
+
+</style>
+</head><body>
+<p >
+    <div class="mal">
+        machine à laver
+    </div>
+    <div class="zmal">
+        machine à laver
+    </div>
+</p>
+
+
+
+
+</body></html>
+
+

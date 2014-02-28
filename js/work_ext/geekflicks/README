@@ -1,0 +1,57 @@
+README
+======
+Tutorial made by Sencha.
+Updated by P.Demanget for an easy installation
+
+Update made to this tutorial:
+added npm package.json file for installation
+modified app.js for deprecated express method.
+
+
+INSTALL
+=======
+npm install
+
+RUN
+===
+mongod& 
+node app.js
+http://127.0.0.1:3000
+
+
+MONGO DEBUG
+===========
+mongod --rest&
+http://127.0.0.1:28017/ =>doc
+http://127.0.0.1:28017/listDatabases
+
+http://127.0.0.1:28017/example/movies/ => list (don't forget last slash)
+http://127.0.0.1:28017/example/movies/?filter_title=bill
+
+result example:
+{
+  "offset" : 0,
+  "rows": [
+    { "title" : "bill", "year" : 1950, "_id" : { "$oid" : "52e90324f0951a783090e3aa" }, "__v" : 0 }
+  ],
+
+  "total_rows" : 1 ,
+  "query" : { "title" : "bill" } ,
+  "millis" : 36
+}
+
+
+on command line
+---------------
+$mongo
+>show dbs
+example 0.203125GB
+local   0.078125GB
+> use example
+switched to db example
+> show collections
+movies
+system.indexes
+
+> db.movies.count()
+3

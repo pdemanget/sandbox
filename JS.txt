@@ -1,0 +1,22 @@
+JS
+
+JS basics: usefull function for beginners or headleess progammers
+
+>numeric basics
+Math.abs()
+angular.isNumber()
+
+function isNumber(n) {
+  return !isNaN(parseFloat(n)) && isFinite(n);
+}
+
+
+
+>moment.js
+moment($scope.subFolder.entryDate).format('YYYY-MM-DD');
+var startDate = moment(data.DATE[0]);
+var aDate = moment(endDate).add('days', 1);
+moment(aDate).toDate(),
+
+x = new Date();
+x.setHours(x.getHours() - x.getTimezoneOffset() / 60);

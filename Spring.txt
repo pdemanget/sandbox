@@ -1,0 +1,38 @@
+Spring.txt
+
+
+>Comment gérer injection
+1 Interface sans annotation
+1 impl avec annotation -type @component @repository etc.
+n utilisations du bean par @autowired niveau field-method.
+
+@Repository pour les DAO
+
+S'il y a un abstract, il n'et pas annoté @Component, mais peut contenir des @Autowired.
+
+>Equivalence XML-annotation
+@ComponentScan
+@Configuration (T) :contient des déclarations Bean
+@Bean (M):déclaration d'un bean
+
+
+(T) annotation Type
+(T) annotation Methodan
+
+>Spring bootstrap
+src:@Configuration javadoc
+JSE, JEE en classe
+    AnnotationConfigApplicationContext ctx =         new AnnotationConfigApplicationContext();
+ ctx.register(AppConfig.class);
+ ctx.refresh();
+ MyBean myBean = ctx.getBean(MyBean.class);
+
+see AnnotationConfigWebApplicationContext for web.xml configuration instructions.
+
+
+>Hibernate
+>>type  :
+@Type(type = "hstore")
+@Column(name="valorisation", columnDefinition="hstore not null")
+@TypeDef
+
