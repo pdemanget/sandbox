@@ -1,0 +1,22 @@
+
+
+Frameworks java
+===============
+
+http://jhipster.github.io/ => builder appli Spring+js
+https://github.com/brettwooldridge/HikariCP => ConnectionPool java
+http://www.jooq.org/ => frameworks
+    
+JDBC
+====
+http://stackoverflow.com/questions/299597/simple-jdbc-wrapper
+https://dalesbred.evident.fi/
+http://www.jcabi.com/jcabi-jdbc/
+
+
+todo ...
+http://www.jdbcpersistence.org/c/performance.html
+
+logs->multi fenetre, indexée
+tests->enregistrer.
+angular-> composant local storage, question angular-ui (poc)

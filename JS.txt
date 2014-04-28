@@ -10,6 +10,14 @@ function isNumber(n) {
   return !isNaN(parseFloat(n)) && isFinite(n);
 }
 
+>String
+"anystring".substring(begin,end) //begin from 0, end excluded
+
+>Arrays
+insert and cutinto and array.
+Array.splice(index, length, array);
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.splice(2,0,"Lemon","Kiwi"); // Banana,Orange,Lemon,Kiwi,Apple,Mango
 
 
 >moment.js
@@ -20,3 +28,86 @@ moment(aDate).toDate(),
 
 x = new Date();
 x.setHours(x.getHours() - x.getTimezoneOffset() / 60);
+
+>Angular
+>>promise
+
+$q.defer()
+deferred.resolve
+deferred.failure
+deferred.notify
+
+
+promise.then( callback , errorback, notifyback );
+
+>>Angular.validation
+ using angular ui validation
+  <input name="email" ng-model="email" ui-validate="{blacklist : 'notBlackListed($value)' }" ui-validate-watch=" 'fromDate' ">
+
+Afficher l'erreur de validation: bien pense au name weight qu pointe sur le (form).$invalid ...
+    <input id="weight" type="number" max="9999" maxlength="4" name="weight" ng-model="sousSejour.weight" ng-pattern="/^[0-9]{3,4}$/"  ng-focused />
+    <span class="error" ng-show="caracteristiques.weight.$invalid && caracteristiques.weight.$focused" translate>ERROR_WEIGHT</span>
+
+Utiliser angular from scratch: créer une directive et "au bon endroit" ajouter:
+ ctrl.$setValidity('tocodeerreur', false); //ou true pour effacer
+
+
+>>Angular date:
+
+  <input type="text" class="normal" ng-model="exportData.fromDate" ui-date="dateOptionsFrom" ui-date-format
+        $scope.dateOptionsFrom = {
+            changeYear: true,
+            changeMonth: true,
+            yearRange: '2013:-0',
+            maxDate: moment().format('DD/MM/YYYY')
+        };
+
+>>Angular Tree
+
+        <div ng-repeat="data in aideDiag.chapters" ng-include="'tree_item_renderer.html'"></div>
+
+<script type="text/ng-template"  id="tree_item_renderer.html">
+        <h4>{{ data.code }} - {{ data.label }} </h4>
+        <div ng-init="level = $parent.level+1 || 0" ng-repeat="data in data.children" ng-include="'tree_item_renderer.html'" class="doc-section-1"> </div>  
+</script>
+
+>>Angular tooltip popover => angular-ui bootstrap http://angular-ui.github.io/bootstrap/
+il faut inclure angular-ui-bootstrap dans bower, puis inclure les sources js dont on a besoin en fonction de leur dépendance: popover->tooltip-> ...
+tuto:
+1. inclure dans bower.json
+2. inclure le source js dans le concat de grunt.js
+3. inclure le source html dans le copy de grunt.js 
+4. ajouter la dépendance dans app.js (ne pas oublier- "bug" fréquent)
+
+>verrues
+function simulateKeyPress() {
+  var evt = document.createEvent("KeyboardEvent");
+  evt.initKeyEvent ("keypress", true, true, window,
+                    0, 0, 0, 0,
+                    0, "e".charCodeAt(0)) 
+  var canceled = !body.dispatchEvent(evt);
+  if(canceled) {
+    // A handler called preventDefault
+    alert("canceled");
+  } else {
+    // None of the handlers called preventDefault
+    alert("not canceled");
+  }
+}
+
+>angular directive
+      restrict: 'AEC', A: Attributes, Element Class
+
+      link: function(scope, elem, attrs, ctrl){
+            elem.bind('keyup', function(){
+                // TODO - what?
+            })
+        }
+ou
+      controller: ...
+
+Best Practice: use controller when you want to expose an API to other directives. Otherwise use link.
+
+>JSON, fasterXml
+LE truc magique (après module4Hibernate)
+@JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class)

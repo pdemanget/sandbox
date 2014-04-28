@@ -17,7 +17,16 @@
 //cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js
 
 //moment($scope.subFolder.entryDate).format('YYYY-MM-DD')
-        alert(moment("12-25-1995", "MM-DD-YYYY").toDate() - moment("12-24-1995", "MM-DD-YYYY").toDate());
+        //alert(moment("12-25-1995", "MM-DD-YYYY").toDate() - moment("12-24-1995", "MM-DD-YYYY").toDate());
+        var obj = {};
+        obj.aaa='AAA';
+        obj.bbb=function(){
+            alert('banana');
+        }
+        var sobj = obj.toString();
+        alert(obj.toSource());
+
+        alert(obj.toString());
         
         /*alert(!!Number("2012"));
 
@@ -50,6 +59,9 @@
             var b="2.aaaa"-0;
             alert('aaaa '+typeof b);
         }
+
+        alert(testNumber.toString());
+        alert(testNumber.toSource());
         </script>
     </body>
 </html>

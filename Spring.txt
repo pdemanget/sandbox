@@ -36,3 +36,19 @@ see AnnotationConfigWebApplicationContext for web.xml configuration instructions
 @Column(name="valorisation", columnDefinition="hstore not null")
 @TypeDef
 
+>Conf annotation
+@Configuration
+
+>Aiga
+org.springframework.http.converter.json.MappingJackson2HttpMessageConverter
+
+    <mvc:annotation-driven>
+        <mvc:message-converters>
+            <bean class="fr.aiga.inoe.extjs.util.MappingJackson2HttpMessageConverter">
+                <!-- <property name="prefixJson" value="true"/> -->
+                <property name="objectMapper">
+                    <bean class="fr.aiga.inoe.extjs.util.HibernateAwareObjectMapper" />
+                </property>
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
